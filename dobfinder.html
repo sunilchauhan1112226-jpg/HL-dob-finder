@@ -1,0 +1,180 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BAsic dob finder using javascript</title>
+    </head>
+    <body>
+        <section class="tech-badges">
+            <div class="badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML logo">
+                <span>HTML</span>
+            </div>
+            <div class="badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS logo">
+                <span>CSS</span>
+            </div>
+            <div class="badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+                <span>JS</span>
+            </div>
+        </section>
+        <nav class="top-nav">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Rate us</a>
+            <a href="#">Pricing</a>
+        </nav>
+        <h1>Enter your age</h1>
+        <input type="number" id="age" min="0" max="120" placeholder="e.g. 21">
+        <button onclick="findDob()">Find DOB</button>
+        <h2>Your Date of birth is: <span id="result"></span></h2>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f7f9fc;
+            }
+            #c{
+                color:rgb(200, 25, 25);
+            }
+
+            #him{
+                color:#27b50e;
+            }
+            .tech-badges {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-bottom: 18px;
+            }
+
+            .badge {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: #ffffff;
+                padding: 8px 12px;
+                border-radius: 999px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                font-weight: 700;
+                color: #1b74d9;
+            }
+
+            .badge img {
+                width: 28px;
+                height: 28px;
+                display: block;
+            }
+
+            h2 {
+                color: #1090b4;
+                text-align: center;
+            }
+
+            .main-title {
+                color: #2ce60b;
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+
+            .top-nav {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+                padding: 16px 0;
+                background: #ffffff;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            }
+
+            .top-nav a {
+                color: #1b74d9;
+                text-decoration: none;
+                font-weight: 600;
+                padding: 8px 10px;
+                border-radius: 6px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .top-nav a:hover {
+                background-color: #eaf4ff;
+                color: #0a58ca;
+            }
+
+            #bob {
+                padding: 10px;
+                font-size: 16px;
+                color: #1b74d9;
+                background-color: #f0f0f0;
+                transition: background-color 0.3s ease;
+            }
+
+            #bob:hover {
+                background-color: #0be6c5;
+                transition: background-color 0.3s ease;
+                animation: cursorAnimation 0.8s infinite;
+            }
+
+            #result {
+                padding: 10px;
+                font-size: 16px;
+                color: #1b74d9;
+                background-color: #f0f0f0;
+                transition: background-color 0.3s ease;
+            }
+
+            #result:hover {
+                background-color: #0be6c5;
+                transition: background-color 0.3s ease;
+                animation: cursorAnimation 0.8s infinite;
+            }
+
+            button {
+                padding: 10px 20px;
+                color: #fff;
+                background-color: #1b74d9;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+                background-color: #0be6c5;
+                transition: background-color 0.3s ease;
+            }
+        </style>
+        <script>
+            function findDob() {
+                const ageInput = document.getElementById('age');
+                const resultElement = document.getElementById('result');
+                const rawAge = ageInput.value.trim();
+
+                if (rawAge === '') {
+                    resultElement.textContent = 'Please enter your age.';
+                    return;
+                }
+
+
+                const age = Number(rawAge);
+                if (!Number.isFinite(age) || age < 6 || age > 120) {
+                    resultElement.textContent = 'Muji Pagal';
+                    return;
+                }
+
+                const dob = new Date();
+                dob.setFullYear(dob.getFullYear() - age);
+
+                resultElement.textContent = dob.toDateString();
+            }
+        </script>
+<p><span id="c">@</span> copyright reserved by <span id="him">himalyx.studio</span> 2026</p>
+    </body>
+</html>
